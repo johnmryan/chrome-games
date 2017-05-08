@@ -6,3 +6,8 @@ How to install:
 - enable developer mode in chrome
 - load unpacked extension
 - choose:  /chrome-games/src/extension/
+
+How to play Cannon game:
+  - left right arrows to aim
+  - 's' to shoot
+  
