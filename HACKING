@@ -1,0 +1,19 @@
+How to contribute to the Chrome Games:
+
+1. Feature requests and bug fixes
+- Use GitHub issues for filing bugs and suggesting feature additions.
+
+If there is already an issue that you would like to resolve, post on it volunteering to do the coding.
+If there is not a relevant issue, create one. 
+
+2. Discussion with team
+- All discussion can happen within the GitHub issues thread
+
+3. Style guide
+- We follow Google's JavaScript style guides, found at: https://google.github.io/styleguide/jsguide.html
+
+4. Pull requests
+- Make sure to create a separate branch if you are working on a new feature
+
+5. Code reviews
+- The lead developer, @tsammons, will provide personal code reviews for each pull request
