@@ -1,6 +1,7 @@
 "use strict";
 var mycanvas, canvas, ctx;
 var board = [];
+var waiting = 0;
 
 // create canvas
 function init() {
@@ -15,7 +16,7 @@ function init() {
     // append to doc
     document.body.appendChild(mycanvas);
     document.body.appendChild(css);
-    //document.addEventListener("keydown", keyDownTextField, false);
+    document.addEventListener("keydown", keyDownTextField, false);
 
     // set dimensions
     canvas = document.getElementById('mycanvas');
@@ -88,6 +89,18 @@ function pick2() {
     }
 }
 
+function keyDownTextField(e) {
+    var keyCode = e.keyCode;
+    console.log(keyCode);
+    if (waiting == 1) {
+	if (keyCode > 48 && keyCode < 58) {
+	    board[Math.floor((keyCode-49)/3)][(keyCode-49)%3] = 2;
+	    waiting = 0;
+	}
+    }
+
+}
+
 function text() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     draw();
@@ -122,6 +135,8 @@ function begin() {
 	    text();
 	}
 	else {
+	    waiting = 1;
+	    //while (waiting){console.log('waiting');};
 	    pick2();
 	    text();
 	}
