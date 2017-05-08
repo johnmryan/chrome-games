@@ -1,9 +1,25 @@
 // var app = chrome.runtime.getBackgroundPage();
 
-function hello() {
+function playCannon() {
   chrome.tabs.executeScript({
-    file: 'script.js'
+    file: 'gameJS/cannon.js'
   }); 
 }
 
-document.getElementById('clickme').addEventListener('click', hello);
+function stop() {
+    chrome.tabs.executeScript({
+	    file: 'gameJS/stop.js'
+		});
+}
+
+function playTic() {
+    chrome.tabs.executeScript({
+            file: 'gameJS/tic.js'
+                });
+}
+
+
+document.getElementById('playCannon').addEventListener('click', playCannon);
+document.getElementById('stopCannon').addEventListener('click', stop);
+document.getElementById('playTic').addEventListener('click', playTic);
+document.getElementById('stopTic').addEventListener('click', stop);

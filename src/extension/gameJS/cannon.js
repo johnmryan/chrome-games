@@ -4,6 +4,7 @@ var current = Math.PI;
 var balls = [];
 var objects = [];
 var count = 0;
+var deleted = 0;
 
 // create canvas
 function init() {
@@ -28,7 +29,8 @@ function init() {
 }
 
 function score() {
-    ctx.fillText(count,canvas.width-100,50);
+    ctx.fillText(count + "/" + (count+deleted),canvas.width-150,50);
+    ctx.fillText(count/(count+deleted), canvas.width-150, 80);
 }
 
 function cannon() {
@@ -100,6 +102,7 @@ function checkbounds(index) {
 function checkboundsObj(index) {
     if (objects[index][0] < 0  || objects[index][0] > canvas.width || objects[index][1] < 0 || objects[index][1] > canvas.height) {
         objects.splice(index, 1);
+	deleted++;
         return 0;
     }
     return 1;
@@ -117,7 +120,7 @@ function drawAll() {
 
 function checkBall(index) {
     for (var i = 0; i < objects.length; i++) {
-	if (balls[index][0] > objects[i][0] && balls[index][0] < objects[i][0]+20 && balls[index][1] > objects[i][1] && balls[index][1] < objects[i][1] + 50) {
+	if (balls[index][0] > objects[i][0]-2.5 && balls[index][0] < objects[i][0]+22.5 && balls[index][1] > objects[i][1]-2.5 && balls[index][1] < objects[i][1] + 52.5) {
 	    objects.splice(i, 1);
 	    balls.splice(index, 1);
 	    count++;
